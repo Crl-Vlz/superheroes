@@ -18,6 +18,12 @@ export default function Layout({ home, children }) {
             integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU"
             crossorigin="anonymous"
           />
+          <link rel="preconnect" href="https://fonts.googleapis.com" />
+          <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+          <link
+            href="https://fonts.googleapis.com/css2?family=Teko:wght@500&display=swap"
+            rel="stylesheet"
+          />
         </Head>
         <Nav />
       </nav>
