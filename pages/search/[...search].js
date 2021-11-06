@@ -2,10 +2,11 @@ import Link from "next/link";
 import Router from "next/router";
 import Layout from "../../components/Layout";
 import Card from "../../components/Components";
+import Error from "../../components/error";
 
 export async function getStaticPaths() {
   return {
-    paths: [{ params: { search: ["Batman", "Superman"] } }],
+    paths: [{ params: { search: [] } }],
     fallback: "blocking",
   };
 }
@@ -24,7 +25,7 @@ export default function Search({ data }) {
   //var results = [];
   //for (var i in hero) results.push([i, hero[i]]);
   if (hero.length == 0) {
-    return <p>Error</p>;
+    return <Error />;
   } else {
     return (
       <Layout>
