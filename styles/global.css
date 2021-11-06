@@ -1,0 +1,79 @@
+:root {
+  --bg-primary: #0c126b;
+  --bg-secondary: #2730b8;
+  --accent-primary: #b89200;
+  --accent-secondary: #6b570c;
+  --highlight: #0a16b8;
+}
+
+html,
+body {
+  padding: 0 !important;
+  margin: 0 !important;
+  width: 100% !important;
+}
+
+div {
+  background-color: var(--bg-primary);
+  color: white;
+  font-weight: bolder;
+  padding: 0px !important;
+}
+
+#root {
+  padding-right: 0 !important;
+  padding-left: 0 !important;
+}
+
+* {
+  background-color: var(--bg-primary);
+  color: white;
+}
+
+.btn-nav {
+  background-color: var(--accent-primary) !important;
+  color: white;
+}
+
+.my-nav {
+  background-color: var(--bg-secondary);
+  padding: 0 !important;
+}
+
+.heroName {
+  background-color: var(--highlight) !important;
+}
+
+.hero-data {
+  background-color: var(--accent-secondary);
+  color: white;
+}
+
+div.hero-data {
+  width: 70%;
+}
+
+@media screen and (min-width: 720px) {
+  .heroText {
+    text-align: justify !important;
+  }
+}
+
+@media screen and (max-width: 719px) {
+  .heroText {
+    text-align: center !important;
+  }
+}
+
+.btn-change {
+  width: 10rem !important;
+  height: 10rem !important;
+  background-color: var(--accent-secondary) !important;
+  margin-left: auto !important;
+  margin-right: auto !important;
+}
+
+.hero-bar {
+  width: 70%;
+  color: black !important;
+}
