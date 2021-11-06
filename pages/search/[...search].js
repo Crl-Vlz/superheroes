@@ -1,47 +1,45 @@
 import Link from "next/link";
+import Router from "next/router";
+import Layout from "../../components/Layout";
+import Card from "../../components/Components";
 
 export async function getStaticPaths() {
-  const id = 731;
-  var heroes = [];
-  for (var i = 1; i <= id; i++) {
-    const res = await fetch(
-      `https://www.superheroapi.com/api.php/4525729287520803/search/${i}`
-    );
-
-    const post = await res.json();
-    heroes.push(post.name);
-  }
-
-  const paths = heroes.map((hero) => ({
-    params: { search: hero },
-  }));
-
-  return { paths, fallback: false };
-}
-
-export async function getStaticProps({ search }) {
-  const res = await fetch(
-    `https://www.superheroapi.com/api.php/4525729287520803/search/${search}`
-  );
-  const hero = await res.json();
   return {
-    props: {
-      data: hero,
-    },
+    paths: [{ params: { search: ["Batman", "Superman"] } }],
+    fallback: "blocking",
   };
 }
+
+export async function getStaticProps({ params }) {
+  const res = await fetch(
+    `https://www.superheroapi.com/api.php/4525729287520803/search/${params.search}`
+  );
+  const data = await res.json();
+  console.log(data);
+  return { props: { data }, revalidate: 1 };
+}
+
 export default function Search({ data }) {
-  return (
-    <p>
-      {data.results.forEach((element) => (
-        <div className="container">
+  const hero = data.results;
+  //var results = [];
+  //for (var i in hero) results.push([i, hero[i]]);
+  if (hero.length == 0) {
+    return <p>Error</p>;
+  } else {
+    return (
+      <Layout>
+        {hero.map((element) => (
           <Link href={`/${element.id}`}>
             <a>
-              {element.name} otherwise known as {element.biography["full-name"]}
+              <Card
+                hero={element["name"]}
+                img={element.image["url"]}
+                full={element.biography["full-name"]}
+              />
             </a>
           </Link>
-        </div>
-      ))}
-    </p>
-  );
+        ))}
+      </Layout>
+    );
+  }
 }

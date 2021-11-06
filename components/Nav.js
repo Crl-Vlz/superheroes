@@ -49,19 +49,11 @@ export default function Nav() {
       </a>
     </Link>
   );
-  const catalog = (
-    <Link href="/catalog/catalog">
-      <a className="my-nav">
-        <button className="btn btn-nav btn-sm">Catalog</button>
-      </a>
-    </Link>
-  );
   const navBar = (
     <div className="container-fluid my-nav">
       <section className="my-nav d-flex justify-content-center align-items-center">
         {logo}
         {random}
-        {catalog}
       </section>
       <section className="my-nav">{searchBar}</section>
     </div>

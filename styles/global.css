@@ -13,6 +13,10 @@ body {
   width: 100% !important;
 }
 
+a {
+  text-decoration: none;
+}
+
 div {
   background-color: var(--bg-primary);
   color: white;
@@ -76,4 +80,14 @@ div.hero-data {
 .hero-bar {
   width: 70%;
   color: black !important;
+}
+
+.my-card {
+  background-color: var(--bg-secondary) !important;
+}
+
+.top-card {
+  border-style: solid !important;
+  border-color: white !important;
+  border-radius: 0.3rem !important;
 }
